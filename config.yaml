@@ -17,4 +17,16 @@ button_style:
 # Пути и внешние ресурсы
 paths:
   bat_script: "customstuff/zfix.bat"  # Путь к скрипту
-  browser_reg_name: "msedge"          # Имя браузера в реестре
+  browser_reg_name: "chrome"          # Имя браузера в реестре
+
+#change name of ur browser in browesr_reg_name
+#"chrome",        # Google Chrome
+#"msedge",        # Microsoft Edge (Chromium)
+#"firefox",       # Mozilla Firefox
+#"opera",         # Opera
+#"brave",         # Brave
+#"iexplore",      # Internet Explorer (устаревший)
+#"vivaldi",       # Vivaldi
+#"slimjet",       # SlimJet
+#"tor",           # Tor Browser (если установлен в App Paths)
+#"yandex"         # Yandex Browser
