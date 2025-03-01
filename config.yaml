@@ -1,0 +1,20 @@
+app:
+  title: "Fast Using"             # Заголовок окна
+  geometry: [500, 400]            # Размер окна [ширина, высота]
+  opacity: 0.96                   # Прозрачность окна (0.0-1.0)
+  icon: "notepad.ico"             # Файл иконки
+  background: "#2E2E2E"           # Цвет фона
+  resizable: false                # Возможность изменения размера окна
+
+# Настройки кнопок
+button_style:
+  font: helvetica 12
+  padding: 10
+  background: "#404040"
+  foreground: "white"
+  corner_radius: 15
+
+# Пути и внешние ресурсы
+paths:
+  bat_script: "customstuff/zfix.bat"  # Путь к скрипту
+  browser_reg_name: "msedge"          # Имя браузера в реестре
