@@ -17,7 +17,7 @@ button_style:
 # Пути и внешние ресурсы
 paths:
   bat_script: "customstuff/zfix.bat"  # Путь к скрипту
-  browser_reg_name: "chrome"          # Имя браузера в реестре
+  browser_reg_name: "chrome"          # Имя браузера в реестре (все еще криво)
 
 #change name of ur browser in browesr_reg_name
 #"chrome",        # Google Chrome
