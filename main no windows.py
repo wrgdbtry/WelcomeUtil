@@ -41,9 +41,9 @@ def load_config():
 
 
 def passwdGenerator():
-    letters = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
-    digits = "1234567890"
-    symbols = "*@_#-+_$"
+    letters = config["passwd"]["letters"]
+    digits = config["passwd"]["digits"]
+    symbols = config["passwd"]["symbols"]
     password = ""
 
     for i in range(0, random.randint(12, 24)):

@@ -14,6 +14,12 @@ button_style:
   foreground: "white"
   corner_radius: 15
 
+# Генератор паролей
+passwd:
+  letters: "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
+  digits: "1234567890"
+  symbols: "*@_#-+_$"
+
 # Пути и внешние ресурсы
 paths:
   bat_script: "customstuff/zfix.bat"  # Путь к скрипту
