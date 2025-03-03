@@ -1,6 +1,6 @@
 import os, webbrowser
 import subprocess
-import sys
+import sys, random
 from pathlib import Path
 from tkinter import messagebox, ttk
 import customtkinter as ctk
@@ -10,6 +10,13 @@ try:
     import customtkinter as ctk
 except:
     print("please do ""pip install customtkinter""", file=sys.stderr)
+    while True:
+        pass
+
+try:
+    import pyperclip
+except:
+    print("please do ""pip install pyperclip""", file=sys.stderr)
     while True:
         pass
 
@@ -31,6 +38,27 @@ def load_config():
     except Exception as e:
         messagebox.showerror("Ошибка", f"Ошибка загрузки конфига: {e}")
         sys.exit(1)
+
+
+def passwdGenerator():
+    letters = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
+    digits = "1234567890"
+    symbols = "*@_#-+_$"
+    password = ""
+
+    for i in range(0, random.randint(12, 24)):
+        rand = random.randint(0, 2)
+        if rand == 0:
+            password += letters[random.randrange(len(letters))]
+        if rand == 1:
+            password += digits[random.randrange(len(digits))]
+        if rand == 2:
+            password += symbols[random.randrange(len(symbols))]
+
+    pyperclip.copy(password)
+    messagebox.showinfo(title="Пароль успешно сгенерирован!", message=f"Ваш пароль: {password}, он скопирован в буфер обмена.")
+    return password
+
 
 
 config = load_config()
@@ -107,6 +135,14 @@ btn3 = ctk.CTkButton(
     command=openBrowser
 )
 btn3.pack(fill=X, pady=5)
+
+btn4 = ctk.CTkButton(
+    master=button_frame,
+    text="Сгенерировать надежный пароль",
+    corner_radius=config["button_style"]["corner_radius"],
+    command=passwdGenerator
+)
+btn4.pack(fill=X, pady=5)
 
 btn_exit = ctk.CTkButton(
     master=button_frame,
