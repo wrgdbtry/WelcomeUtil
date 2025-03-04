@@ -31,6 +31,7 @@ script_directory = os.path.dirname(os.path.abspath(__file__))
 
 
 def load_config():
+
     config_path = Path(__file__).parent / "config.yaml"
     try:
         with open(config_path, "r", encoding="utf-8") as f:
@@ -60,6 +61,23 @@ def passwdGenerator():
     return password
 
 
+def openShortcut1():
+    if chkShortcut(1):
+        webbrowser.open(config["shortcuts"][f'shortcut1'])
+
+def openShortcut2():
+    if chkShortcut(2):
+        webbrowser.open(config["shortcuts"][f'shortcut2'])
+
+def openShortcut3():
+    if chkShortcut(3):
+        webbrowser.open(config["shortcuts"][f'shortcut3'])
+
+def chkShortcut(i):
+    if config["shortcuts"][f'shortcut{i}'] is not None:
+        return True
+    else:
+        return False
 
 config = load_config()
 script_directory = Path(__file__).parent
@@ -144,6 +162,34 @@ btn4 = ctk.CTkButton(
 )
 btn4.pack(fill=X, pady=5)
 
+btn5 = ctk.CTkButton(
+    master=button_frame,
+    text=config["shortcuts"]["shortcut1_name"],
+    corner_radius=config["button_style"]["corner_radius"],
+    command=openShortcut1
+)
+if config["shortcuts"]["shortcut1"] != 0:
+    btn5.pack(fill=X, pady=5)
+
+btn6 = ctk.CTkButton(
+    master=button_frame,
+    text=config["shortcuts"]["shortcut3_name"],
+    corner_radius=config["button_style"]["corner_radius"],
+    command=openShortcut2
+)
+if config["shortcuts"]["shortcut2"] != 0:
+    btn6.pack(fill=X, pady=5)
+
+btn7 = ctk.CTkButton(
+    master=button_frame,
+    text=config["shortcuts"]["shortcut3_name"],
+    corner_radius=config["button_style"]["corner_radius"],
+    command=openShortcut3
+)
+if config["shortcuts"]["shortcut3"] != 0:
+    btn7.pack(fill=X, pady=5)
+
+
 btn_exit = ctk.CTkButton(
     master=button_frame,
     text="Выход",
@@ -155,7 +201,7 @@ btn_exit.pack(fill=X, pady=5)
 status_bar = ttk.Frame(root, height=20)
 status_bar.pack(fill=X, side=BOTTOM)
 ttk.Label(status_bar,
-          text="",
+          text="Может работать криво",
           anchor=W,
           style="TLabel").pack(side=LEFT, padx=5)
 

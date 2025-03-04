@@ -1,3 +1,11 @@
+shortcuts: # Ссылку вставлешь заместо 0
+  shortcut1_name: "Github"
+  shortcut1:  "https://github.com/wrgdbtry/WelcomeUtil"
+  shortcut2_name: "Configure me (config.yaml)"
+  shortcut2:  0
+  shortcut3_name: "Configure me (config.yaml)"
+  shortcut3:  0
+
 app:
   title: "Fast Using"             # Заголовок окна
   geometry: [500, 400]            # Размер окна [ширина, высота]
