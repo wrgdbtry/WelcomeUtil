@@ -1,6 +1,7 @@
 import os, webbrowser
 import subprocess
 import sys, random
+import time
 from pathlib import Path
 from tkinter import messagebox, ttk
 import customtkinter as ctk
@@ -31,7 +32,6 @@ script_directory = os.path.dirname(os.path.abspath(__file__))
 
 
 def load_config():
-
     config_path = Path(__file__).parent / "config.yaml"
     try:
         with open(config_path, "r", encoding="utf-8") as f:
@@ -40,6 +40,14 @@ def load_config():
         messagebox.showerror("Ошибка", f"Ошибка загрузки конфига: {e}")
         sys.exit(1)
 
+def fade_out():
+    current_alpha = root.attributes("-alpha")
+    if current_alpha > 0:
+        new_alpha = max(current_alpha - 0.02, 0.0)
+        root.attributes("-alpha", new_alpha)
+        root.after(15, fade_out)
+    else:
+        root.destroy()
 
 def passwdGenerator():
     letters = config["passwd"]["letters"]
@@ -57,7 +65,8 @@ def passwdGenerator():
             password += symbols[random.randrange(len(symbols))]
 
     pyperclip.copy(password)
-    messagebox.showinfo(title="Пароль успешно сгенерирован!", message=f"Ваш пароль: {password}, он скопирован в буфер обмена.")
+    messagebox.showinfo(title="Пароль успешно сгенерирован!",
+                        message=f"Ваш пароль: {password}, он скопирован в буфер обмена.")
     return password
 
 
@@ -65,19 +74,23 @@ def openShortcut1():
     if chkShortcut(1):
         webbrowser.open(config["shortcuts"][f'shortcut1'])
 
+
 def openShortcut2():
     if chkShortcut(2):
         webbrowser.open(config["shortcuts"][f'shortcut2'])
 
+
 def openShortcut3():
     if chkShortcut(3):
         webbrowser.open(config["shortcuts"][f'shortcut3'])
+
 
 def chkShortcut(i):
     if config["shortcuts"][f'shortcut{i}'] is not None:
         return True
     else:
         return False
+
 
 config = load_config()
 script_directory = Path(__file__).parent
@@ -101,6 +114,7 @@ def configure_styles():
 
 def openZapretFix():
     messagebox.showerror(title="ФИКСИК НЕ РОБИТ", message="Ты на маке/линуксе, какие тебе батники?")
+
 
 def openBrowser():
     webbrowser.open('https://www.google.com')
@@ -189,12 +203,11 @@ btn7 = ctk.CTkButton(
 if config["shortcuts"]["shortcut3"] != 0:
     btn7.pack(fill=X, pady=5)
 
-
 btn_exit = ctk.CTkButton(
     master=button_frame,
     text="Выход",
     corner_radius=config["button_style"]["corner_radius"],
-    command=root.destroy
+    command=fade_out
 )
 btn_exit.pack(fill=X, pady=5)
 
