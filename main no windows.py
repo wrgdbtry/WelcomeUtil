@@ -180,7 +180,7 @@ if config["shortcuts"]["shortcut1"] != 0:
 
 btn6 = ctk.CTkButton(
     master=button_frame,
-    text=config["shortcuts"]["shortcut3_name"],
+    text=config["shortcuts"]["shortcut2_name"],
     corner_radius=config["button_style"]["corner_radius"],
     command=openShortcut2
 )
