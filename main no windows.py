@@ -1,10 +1,7 @@
 import os, webbrowser
-import subprocess
 import sys, random
-import time
 from pathlib import Path
 from tkinter import messagebox, ttk
-import customtkinter as ctk
 from tkinter import *
 
 try:
@@ -93,6 +90,7 @@ def chkShortcut(i):
 
 
 config = load_config()
+
 script_directory = Path(__file__).parent
 
 
@@ -117,8 +115,11 @@ def openZapretFix():
 
 
 def openBrowser():
-    webbrowser.open('https://www.google.com')
-
+    selected_browser = webbrowser.get(config["paths"]["browser_reg_page"])
+    try:
+        selected_browser.open(config["paths"]["browser_main_page"])
+    except:
+       webbrowser.open(config["paths"]["browser_main_page"])
 
 root = Tk()
 root.title(config["app"]["title"])
@@ -149,16 +150,8 @@ btn_style = ttk.Style()
 btn_style.configure("Custom.TButton",
                     font=config["button_style"]["font"],
                     padding=config["button_style"]["padding"],
-                    background=config["button_style"]["background"],
-                    foreground=config["button_style"]["foreground"])
-
-btn2 = ctk.CTkButton(
-    master=button_frame,
-    text="Запустить запретфикс",
-    corner_radius=config["button_style"]["corner_radius"],
-    command=openZapretFix
-)
-btn2.pack(fill=X, pady=5)
+		    background=config["button_style"]["background"],
+		    foreground=config["button_style"]["foreground"])
 
 btn3 = ctk.CTkButton(
     master=button_frame,

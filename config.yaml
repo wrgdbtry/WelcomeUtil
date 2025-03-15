@@ -31,8 +31,8 @@ passwd:
 # Пути и внешние ресурсы
 paths:
   bat_script: "customstuff/zfix.bat"  # Путь к скрипту
-  browser_reg_name: "chrome"          # Имя браузера в реестре (все еще криво)
-  browser_main_page: 'https://www.google.com' # чисто яблочникам
+  browser_reg_name: "waterfox"          # Имя браузера в реестре (все еще криво)
+  browser_main_page: 'https://www.google.com' # Для no windows page
 #change name of ur browser in browesr_reg_name
 #"chrome",        # Google Chrome
 #"msedge",        # Microsoft Edge (Chromium)
