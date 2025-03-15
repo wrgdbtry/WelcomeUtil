@@ -1,5 +1,5 @@
-# This sh*t doesn't work propertly!
+# This doesn't work propertly, only alpha versions!
 
 ## Reqirements:
-os, winreg, subprocess, sys, yaml, pathlib, customtkinter, pyperclip
+yaml, customtkinter, pyperclip
 
