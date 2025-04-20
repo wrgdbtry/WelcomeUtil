@@ -2,7 +2,8 @@
 now works stable only for everyone!          
 
 ## How to use
-Just start it
+1. Run ApplyChanges.ps1\ApplyChangesUnix.bash
+2. Just start it
 
 ## How to edit code
 
