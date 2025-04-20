@@ -3,6 +3,7 @@ import sys, random
 from pathlib import Path
 from tkinter import messagebox, ttk
 from tkinter import *
+from settings import open_config_editor
 
 try:
     import customtkinter as ctk
@@ -88,6 +89,9 @@ def chkShortcut(i):
     else:
         return False
 
+def open_config_editor_button():
+    open_config_editor("config.yaml")
+
 
 config = load_config()
 
@@ -110,16 +114,10 @@ def configure_styles():
               )
 
 
-def openZapretFix():
-    messagebox.showerror(title="ФИКСИК НЕ РОБИТ", message="Ты на маке/линуксе, какие тебе батники?")
-
 
 def openBrowser():
-    selected_browser = webbrowser.get(config["paths"]["browser_reg_page"])
-    try:
-        selected_browser.open(config["paths"]["browser_main_page"])
-    except:
-       webbrowser.open(config["paths"]["browser_main_page"])
+    webbrowser.open(config["paths"]["browser_main_page"])
+
 
 root = Tk()
 root.title(config["app"]["title"])
@@ -137,9 +135,9 @@ header_frame = ttk.Frame(main_frame)
 header_frame.pack(fill=X, pady=10)
 
 label1 = ttk.Label(header_frame,
-                   text=f"Добро пожаловать, {os.getlogin()}!",
-                   font=("Helvetica", 14, "bold"),
-                   anchor="center")
+                text=f"Добро пожаловать, {os.getlogin()}!",
+                font=("Helvetica", 14, "bold"),
+                anchor="center")
 label1.pack(fill=X)
 
 button_frame = ttk.Frame(main_frame)
@@ -150,8 +148,8 @@ btn_style = ttk.Style()
 btn_style.configure("Custom.TButton",
                     font=config["button_style"]["font"],
                     padding=config["button_style"]["padding"],
-		    background=config["button_style"]["background"],
-		    foreground=config["button_style"]["foreground"])
+            background=config["button_style"]["background"],
+            foreground=config["button_style"]["foreground"])
 
 btn3 = ctk.CTkButton(
     master=button_frame,
@@ -168,6 +166,15 @@ btn4 = ctk.CTkButton(
     command=passwdGenerator
 )
 btn4.pack(fill=X, pady=5)
+
+# shortcuts bruuuuuuuuuuuuuuuuuuuuuuuuh
+
+label2 = ttk.Label(button_frame,
+                   text=f"Полезные веб сайты",
+                   font=("Helvetica", 10, "bold"),
+                anchor="center")
+label2.pack(fill=X, pady=10)
+
 
 btn5 = ctk.CTkButton(
     master=button_frame,
@@ -196,6 +203,15 @@ btn7 = ctk.CTkButton(
 if config["shortcuts"]["shortcut3"] != 0:
     btn7.pack(fill=X, pady=5)
 
+btn8 = ctk.CTkButton(
+    master=button_frame,
+    text="Параметры",
+    corner_radius=config["button_style"]["corner_radius"],
+    command=open_config_editor_button
+)
+btn8.pack(fill=X, pady=5)
+
+
 btn_exit = ctk.CTkButton(
     master=button_frame,
     text="Выход",
@@ -207,9 +223,9 @@ btn_exit.pack(fill=X, pady=5)
 status_bar = ttk.Frame(root, height=20)
 status_bar.pack(fill=X, side=BOTTOM)
 ttk.Label(status_bar,
-          text="Может работать криво",
-          anchor=W,
-          style="TLabel").pack(side=LEFT, padx=5)
+        text="Может работать криво",
+        anchor=W,
+        style="TLabel").pack(side=LEFT, padx=5)
 
 try:
     root.iconbitmap(os.path.join(script_directory, "notepad.ico"))

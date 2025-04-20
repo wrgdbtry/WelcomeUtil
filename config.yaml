@@ -29,18 +29,5 @@ passwd:
   symbols: "*@_#-+_$"
 
 # Пути и внешние ресурсы
-paths:
-  bat_script: "customstuff/zfix.bat"  # Путь к скрипту
-  browser_reg_name: "waterfox"          # Имя браузера в реестре (все еще криво)
-  browser_main_page: 'https://www.google.com' # Для no windows page
-#change name of ur browser in browesr_reg_name
-#"chrome",        # Google Chrome
-#"msedge",        # Microsoft Edge (Chromium)
-#"firefox",       # Mozilla Firefox
-#"opera",         # Opera
-#"brave",         # Brave
-#"iexplore",      # Internet Explorer (устаревший)
-#"vivaldi",       # Vivaldi
-#"slimjet",       # SlimJet
-#"tor",           # Tor Browser (если установлен в App Paths)
-#"yandex"         # Yandex Browser
+Paths:
+  browser_main_page: 'https://www.google.com'
