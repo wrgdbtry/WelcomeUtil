@@ -54,6 +54,7 @@ python -m PyInstaller `
   --noconsole `
   --icon "notepad.ico" `
   --add-data "config.yaml;." `
+  --add-data "settings.py;." `
   --add-data "notepad.ico;." `
   "main no windows.py"
 
