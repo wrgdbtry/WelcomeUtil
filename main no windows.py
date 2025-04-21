@@ -102,7 +102,7 @@ def configure_styles():
     ctk.set_appearance_mode("dark")
     ctk.set_default_color_theme("blue")
     style = ttk.Style()
-    root.attributes("-alpha", 0.96)
+    root.attributes("-alpha", float(config['app']["opacity"]))
     style.theme_use("clam")
 
     style.configure("TFrame", background="#2E2E2E")
@@ -121,9 +121,9 @@ def openBrowser():
 
 root = Tk()
 root.title(config["app"]["title"])
-root.geometry(f"{config['app']['geometry'][0]}x{config['app']['geometry'][1]}")
+root.geometry(f"{int(config['app']['geometryX'])}x{int(config['app']['geometryY'])}")
 root.resizable(config["app"]["resizable"], config["app"]["resizable"])
-root.attributes("-alpha", config["app"]["opacity"])
+root.attributes("-alpha", float(config["app"]["opacity"]))
 root.configure(bg=config["app"]["background"])
 
 configure_styles()
@@ -154,7 +154,7 @@ btn_style.configure("Custom.TButton",
 btn3 = ctk.CTkButton(
     master=button_frame,
     text="Запустить браузер",
-    corner_radius=config["button_style"]["corner_radius"],
+    corner_radius=int(config["button_style"]["corner_radius"]),
     command=openBrowser
 )
 btn3.pack(fill=X, pady=5)
@@ -162,7 +162,7 @@ btn3.pack(fill=X, pady=5)
 btn4 = ctk.CTkButton(
     master=button_frame,
     text="Сгенерировать надежный пароль",
-    corner_radius=config["button_style"]["corner_radius"],
+    corner_radius=int(config["button_style"]["corner_radius"]),
     command=passwdGenerator
 )
 btn4.pack(fill=X, pady=5)
@@ -170,7 +170,7 @@ btn4.pack(fill=X, pady=5)
 # shortcuts bruuuuuuuuuuuuuuuuuuuuuuuuh
 
 label2 = ttk.Label(button_frame,
-                   text=f"Полезные веб сайты",
+                   text=f"Закладки",
                    font=("Helvetica", 10, "bold"),
                 anchor="center")
 label2.pack(fill=X, pady=10)
@@ -179,7 +179,7 @@ label2.pack(fill=X, pady=10)
 btn5 = ctk.CTkButton(
     master=button_frame,
     text=config["shortcuts"]["shortcut1_name"],
-    corner_radius=config["button_style"]["corner_radius"],
+    corner_radius=int(config["button_style"]["corner_radius"]),
     command=openShortcut1
 )
 if config["shortcuts"]["shortcut1"] != 0:
@@ -188,7 +188,7 @@ if config["shortcuts"]["shortcut1"] != 0:
 btn6 = ctk.CTkButton(
     master=button_frame,
     text=config["shortcuts"]["shortcut2_name"],
-    corner_radius=config["button_style"]["corner_radius"],
+    corner_radius=int(config["button_style"]["corner_radius"]),
     command=openShortcut2
 )
 if config["shortcuts"]["shortcut2"] != 0:
@@ -197,7 +197,7 @@ if config["shortcuts"]["shortcut2"] != 0:
 btn7 = ctk.CTkButton(
     master=button_frame,
     text=config["shortcuts"]["shortcut3_name"],
-    corner_radius=config["button_style"]["corner_radius"],
+    corner_radius=int(config["button_style"]["corner_radius"]),
     command=openShortcut3
 )
 if config["shortcuts"]["shortcut3"] != 0:
@@ -206,7 +206,7 @@ if config["shortcuts"]["shortcut3"] != 0:
 btn8 = ctk.CTkButton(
     master=button_frame,
     text="Параметры",
-    corner_radius=config["button_style"]["corner_radius"],
+    corner_radius=int(config["button_style"]["corner_radius"]),
     command=open_config_editor_button
 )
 btn8.pack(fill=X, pady=5)
@@ -215,7 +215,7 @@ btn8.pack(fill=X, pady=5)
 btn_exit = ctk.CTkButton(
     master=button_frame,
     text="Выход",
-    corner_radius=config["button_style"]["corner_radius"],
+    corner_radius=int(config["button_style"]["corner_radius"]),
     command=fade_out
 )
 btn_exit.pack(fill=X, pady=5)
@@ -223,7 +223,7 @@ btn_exit.pack(fill=X, pady=5)
 status_bar = ttk.Frame(root, height=20)
 status_bar.pack(fill=X, side=BOTTOM)
 ttk.Label(status_bar,
-        text="Может работать криво",
+        text="v1.1",
         anchor=W,
         style="TLabel").pack(side=LEFT, padx=5)
 

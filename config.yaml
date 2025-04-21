@@ -1,33 +1,27 @@
-shortcuts: # Ссылку вставлешь заместо 0
-  shortcut1_name: "Github"
-  shortcut1:  "https://github.com/wrgdbtry/WelcomeUtil"
-  shortcut2_name: "Configure me (config.yaml)"
-  shortcut2:  0
-  shortcut3_name: "Configure me (config.yaml)"
-  shortcut3:  0
-
-app:
-  title: "Fast Using"             # Заголовок окна
-  geometry: [500, 400]            # Размер окна [ширина, высота]
-  opacity: 0.96                   # Прозрачность окна (0.0-1.0)
-  icon: "notepad.ico"             # Файл иконки
-  background: "#2E2E2E"           # Цвет фона
-  resizable: false                # Возможность изменения размера окна
-
-# Настройки кнопок
-button_style:
-  font: helvetica 12
-  padding: 10
-  background: "#404040"
-  foreground: "white"
-  corner_radius: 15
-
-# Генератор паролей
-passwd:
-  letters: "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
-  digits: "1234567890"
-  symbols: "*@_#-+_$"
-
-# Пути и внешние ресурсы
 Paths:
-  browser_main_page: 'https://www.google.com'
+  browser_main_page: https://www.google.com
+app:
+  background: '#2E2E2E'
+  geometryX: '450'
+  geometryY: '450'
+  icon: notepad.ico
+  opacity: '0.96'
+  resizable: '0'
+  title: Fast Using
+button_style:
+  background: '#404040'
+  corner_radius: '15'
+  font: helvetica 12
+  foreground: white
+  padding: '10'
+passwd:
+  digits: '1234567890'
+  letters: qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM
+  symbols: '*@_#-+_$'
+shortcuts:
+  shortcut1: https://github.com/wrgdbtry/WelcomeUtil
+  shortcut1_name: Github
+  shortcut2: http://soundcloud.com/
+  shortcut2_name: Soundcloud
+  shortcut3: https://mail.google.com
+  shortcut3_name: Gmail
